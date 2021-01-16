@@ -42,3 +42,24 @@ export const GetPokemon = (pokemon) => async (dispatch) => {
     });
   }
 };
+
+export const PokemonSearch = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "POKEMON_SEARCH_LOADING",
+    });
+
+    const res = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon?limit=100&offset=0`
+    );
+
+    dispatch({
+      type: "POKEMON_SEARCH_SUCCESS",
+      payload: res.data,
+    });
+  } catch (e) {
+    dispatch({
+      type: "POKEMON_SEARCH_FAIL",
+    });
+  }
+};

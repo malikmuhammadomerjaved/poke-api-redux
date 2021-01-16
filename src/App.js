@@ -3,6 +3,7 @@ import "./App.css";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
 import PokemonList from "./containers/PokemonList";
 import Pokemon from "./containers/Pokemon";
+import SearchPokemon from "./containers/SearchPokemon";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <nav>
         <NavLink to="/">Search</NavLink>
       </nav>
+
+      <SearchPokemon />
+
       <Switch>
         <Route path="/" exact component={PokemonList} />
 
